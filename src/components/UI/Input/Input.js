@@ -11,7 +11,7 @@ const input = (props) => {
     inputClasses.push(classes.InputElement);
     if (!props.valid && props.shouldValidate && props.touched) {
         inputClasses.push(classes.Invalid);
-        errorElement = <span className={classes.ErrorMessage}>Please enter a valid value!</span>
+        errorElement = <span className={classes.ErrorMessage}>Please enter a valid value!</span>;
     }
 
     switch(props.elementType) {
@@ -58,6 +58,6 @@ const input = (props) => {
             {errorElement}
         </div>
     );
-}
+};
 
 export default input;

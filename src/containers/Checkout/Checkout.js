@@ -65,18 +65,18 @@ class Checkout extends Component {
                         path={this.props.match.url + '/contact-data'}
                         component={ContactData} />
                 </div>
-            )
+            );
         }
         return summary;
     }
-};
+}
 
 const mapStateToProps = state => {
     return {
         ings: state.burgerBuilder.ingredients,
         purchased: state.order.purchased,
         price: state.burgerBuilder.totalPrice
-    }
+    };
 };
 
 

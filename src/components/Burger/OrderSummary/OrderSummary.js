@@ -14,26 +14,26 @@ class OrderSummary extends Component {
     render() {
 
         const ingredientSummary = Object.keys(this.props.ingredients)
-        .map(idIngr => {
-            return (
-                <li key={idIngr}>
-                    <span style={{textTransform: 'capitalize'}}>{idIngr}</span> : {this.props.ingredients[idIngr]}
-                </li>
-            )
-        })    
+            .map(idIngr => {
+                return (
+                    <li key={idIngr}>
+                        <span style={{textTransform: 'capitalize'}}>{idIngr}</span> : {this.props.ingredients[idIngr]}
+                    </li>
+                );
+            });    
 
         return (
             <Aux>
-            <h3>Your Order</h3>
-            <p>A delicious burger with the following ingredients:</p>
-            <ul>
-                {ingredientSummary}
-            </ul>
-            <p><strong>Total Price: {this.props.price.toFixed(2)}</strong></p>
-            <p>Continue to checkout?</p>
-            <Button btnType='Danger' clicked={this.props.cancelPurchasing}>CANCEL</Button>
-            <Button btnType='Success' clicked={this.props.continuePurchasing}>CONTINUE</Button>
-        </Aux>
+                <h3>Your Order</h3>
+                <p>A delicious burger with the following ingredients:</p>
+                <ul>
+                    {ingredientSummary}
+                </ul>
+                <p><strong>Total Price: {this.props.price.toFixed(2)}</strong></p>
+                <p>Continue to checkout?</p>
+                <Button btnType='Danger' clicked={this.props.cancelPurchasing}>CANCEL</Button>
+                <Button btnType='Success' clicked={this.props.continuePurchasing}>CONTINUE</Button>
+            </Aux>
         );
     }
 }

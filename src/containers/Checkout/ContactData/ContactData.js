@@ -110,7 +110,7 @@ class ContactData extends Component {
             ingredients: this.props.ings,
             price: this.props.price,
             customer: orderForm
-        }
+        };
 
         this.props.onOrder(order);
         // axios.post('orders.json', order)
@@ -147,10 +147,10 @@ class ContactData extends Component {
     inputChangedHangler = (event, elementIdentifier) => {
         const updatedOrderForm = {
             ...this.state.orderForm
-        }
+        };
         const updatedFormEl = {
             ...updatedOrderForm[elementIdentifier]
-        }
+        };
         updatedFormEl.value = event.target.value;
         updatedFormEl.valid = this.checkValidity(event.target.value, updatedOrderForm[elementIdentifier].validation);
         updatedFormEl.touched = true;
@@ -199,20 +199,20 @@ class ContactData extends Component {
             </div>
         );
     }
-};
+}
 
 const mapStateToProps = state => {
     return {
         ings: state.burgerBuilder.ingredients,
         price: state.burgerBuilder.totalPrice,
         loading: state.order.loading
-    }
+    };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         onOrder: (orderData) => dispatch(orders.purchaseBurger(orderData))
-    }
-}
+    };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(ContactData, axios));

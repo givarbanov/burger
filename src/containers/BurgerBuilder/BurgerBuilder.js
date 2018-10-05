@@ -96,14 +96,14 @@ class BurgerBuilde extends Component {
 
         const disabledInfo = {
             ...this.props.ings
-        }
+        };
 
         for (let key in disabledInfo) {
             disabledInfo[key] = disabledInfo[key] <= 0;
         }
 
         let modalContent = null;
-        let burger = this.props.error ? <p>Ingredients can't be loaded!</p> : <Spinner />
+        let burger = this.props.error ? <p>Ingredients can't be loaded!</p> : <Spinner />;
         if (this.props.ings) {
             burger = (
                 <Aux>
@@ -116,12 +116,12 @@ class BurgerBuilde extends Component {
                         ordered={this.purchaseHandler}
                         disabled={disabledInfo} />
                 </Aux>
-            )
+            );
             modalContent = <OrderSummary
                 cancelPurchasing={this.purchaseCansel}
                 continuePurchasing={this.purchaseCotinue}
                 price={this.props.price}
-                ingredients={this.props.ings} />
+                ingredients={this.props.ings} />;
         }
 
         return (
@@ -133,14 +133,14 @@ class BurgerBuilde extends Component {
             </Aux>
         );
     }
-};
+}
 
 const mapStateToProps = state => {
     return {
         ings: state.burgerBuilder.ingredients,
         price: state.burgerBuilder.totalPrice,
         error: state.burgerBuilder.error
-    }
+    };
 };
 
 const mapDispatchToprops = dispatch => {
@@ -149,7 +149,7 @@ const mapDispatchToprops = dispatch => {
         onRemoveIngredient: (ingName) => dispatch(burgerBuilderActions.removeIngredient(ingName)),
         onInitIngredient: () => dispatch(burgerBuilderActions.initIngredient()),
         onPurchaseInit: () => dispatch(burgerBuilderActions.purchaseInit())
-    }
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToprops)(withErrorHandler(BurgerBuilde, axios));

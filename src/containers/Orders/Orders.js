@@ -28,7 +28,7 @@ class Orders extends Component {
             <div>
                 {orders}
             </div>
-        )
+        );
     }
 }
 
@@ -36,13 +36,13 @@ const mapStateToProps = (state) => {
     return {
         orders: state.order.orders,
         loading: state.order.loading
-    }
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         onFetchOrders: () => dispatch(actions.fetchOrder())
-    }
-}
+    };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withError(Orders, axios));

@@ -8,9 +8,9 @@ const Order = (props) => {
         ingredientsOut.push({
             name: ingredientName,
             amount: props.ingredients[ingredientName]
-        })
+        });
     }
-console.log(ingredientsOut);
+    console.log(ingredientsOut);
     const ingredientsJSX = ingredientsOut.map(id => {
         return (
             <span 
@@ -22,15 +22,15 @@ console.log(ingredientsOut);
                     border: '1px solid #eee'
                 }}
                 key={id.name}>{id.name} ({id.amount})</span>
-        )
-    })
+        );
+    });
 
     return (
         <div className={classes.Order}>
             <p>Ingredients: {ingredientsJSX}</p>
             <p>Price: <strong>USD {parseFloat(props.price).toFixed(2)}</strong></p>
         </div>
-    )
-}
+    );
+};
 
 export default Order;
