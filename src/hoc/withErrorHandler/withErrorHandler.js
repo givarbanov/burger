@@ -7,20 +7,6 @@ const withErrorHandler = (WrappedComponent, axios) => {
 
     return class extends Component {
 
-        // constructor(props) {
-        //     super(props);
-        //     this.state = {error: null};
-        //     this.reqInterceptor = axios.interceptors.request.use(req => {
-        //         this.sate = {error: null};
-        //         return req;
-        //     });
-        
-        //     this.resInterceptor = axios.interceptors.response.use(res => res, error => {
-        //         this.state = {error: error};
-        //     });
-        //     console.log("[ERROR HAND constr] " + this.state.error)
-        // }
-
         state = {
             error: null
         }
@@ -46,7 +32,6 @@ const withErrorHandler = (WrappedComponent, axios) => {
         }
 
         render() {
-            console.log('[ERROR:] ' + this.state.error);
             return (
                 <Aux>
                     <Modal 
